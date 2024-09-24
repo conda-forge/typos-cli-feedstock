@@ -1,5 +1,5 @@
 {% set name = "typos-cli" %}
-{% set version = "1.23.7" %}
+{% set version = "1.24.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/crate-ci/typos/archive/v{{ version }}.tar.gz
-  sha256: 2810ddf17d81fc84f7e5f511d414d17c0dcc22482e9632c95c5078e8c2a7e629
+  sha256: 3ca3815e7c6efe627878e183ac90f4150fdb9c1372c27535d66eee625be8bdd0
 
 build:
   number: 0
