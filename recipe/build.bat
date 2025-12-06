@@ -1,3 +1,9 @@
+@echo on
+@setlocal EnableDelayedExpansion
+
+set CARGO_PROFILE_RELEASE_STRIP=symbols
+set CARGO_PROFILE_RELEASE_LTO=fat
+
 :: check licenses
 cargo-bundle-licenses ^
     --format yaml ^
@@ -6,7 +12,7 @@ cargo-bundle-licenses ^
 :: build statically linked binary with Rust
 cargo install --bins --no-track --locked --root %LIBRARY_PREFIX% --path crates\typos-cli || goto :error
 
-goto :EOF
+goto :eof
 
 :error
 echo Failed with error #%errorlevel%.

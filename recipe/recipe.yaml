@@ -1,0 +1,40 @@
+schema_version: 1
+
+context:
+  version: 1.40.0
+
+package:
+  name: typos-cli
+  version: ${{ version }}
+
+source:
+  url: https://github.com/crate-ci/typos/archive/v${{ version }}.tar.gz
+  sha256: f8317b77e124f0201a47289a1d3e7a196e93cdbec3df9a0fc82d10c934c0ca85
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ compiler('rust') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - cargo-bundle-licenses
+
+tests:
+  - script:
+      - typos --help
+
+about:
+  license: Apache-2.0 AND MIT
+  license_file:
+    - LICENSE-APACHE
+    - LICENSE-MIT
+    - THIRDPARTY.yml
+  summary: Source code spell checker
+  homepage: https://github.com/crate-ci/typos-cli
+  repository: https://github.com/crate-ci/typos-cli
+
+extra:
+  recipe-maintainers:
+    - danielnachun
